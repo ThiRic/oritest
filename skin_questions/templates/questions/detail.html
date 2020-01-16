@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+{% block content %}
+{% for item in questionnaire.question_set.all %}
+
+<li>{{ item.question_text }}</li>
+
+{% endfor %}
+<h1>{{ question.question_text }}</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="{% url 'question_app:questionnaire' question.id %}" method="post">
+    <p>
+    {% csrf_token %}
+    {% for answer in question.answer_set.all %}
+        <input type="radio" name="answer" id="answer{{ forloop.counter }}"
+        value="{{ answer.id }}">
+    <label for="answer{{ forloop.counter }}">{{ answer.answer_text }}
+    </label><br>
+    {% endfor %}
+    </p>
+    <input type="submit" value="Confirm">
+    <input type="button" onclick="history.back();" value="Back">
+</form>
+{% endblock content%}
+</body>
+</html>

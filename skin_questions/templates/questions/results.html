@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+<h1>{{ question.question_text }}</h1>
+    <ul>
+    {% for answer in question.answer_set.all %}
+    <li>{{ answer.answer_text }} -- {{ answer.score_1 }} answer{{ answer.score_1|pluralize }}
+    </li>
+    {% endfor %}
+    </ul>
+
+<a href="{% url 'question_app:detail' question.id %}">Chose again?</a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oritest</title>
+</head>
+<body>
+<h1 style="color:#88d1b1">Test Results</h1>
+<p>Here is your skin score based on your answers:
+<ul>
+    <li>C1: 2</li>
+    <li>E1: 1</li>
+    <li>S3: 1</li>
+    <li>D1: 1</li>
+    <li>D2: 1</li>
+    <li>D5: 3</li>
+    <li>D6: 1</li>
+    <li>N1: 1</li>
+    <li>N2: 1</li>
+</ul>
+</p>
+<br>
+<p>Therefore, we recommend you to use the following products for your skin care routine:
+<ul>
+    <li>Cleanser: C1</li>
+    <li>Eye cream: E1</li>
+    <li>Serum: S3</li>
+    <li>Day cream: D5</li>
+    <li>Night cream: N1 or N2 (if your skin is sensitive)</li>
+</ul>
+</p>
+<br>
+<img src="{% static "oritest/images/acne_range.png"%}" style="padding:20px;"/>
+</body>
+</html>

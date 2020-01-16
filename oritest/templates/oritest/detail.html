@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oritest</title>
+</head>
+<body>
+{% if latest_question_list %}
+{% for item in latest_question_list %}
+<h1>{{ item.question_text}}</h1>
+    {% for answer in item.choice_set.all %}
+    <form action="{% url 'oritest:results'%}" method="post">
+    <p>
+    {% csrf_token %}
+        <input type="checkbox" name="answers" id="answer"
+        value="{{ answer.C1 }}">
+    <label for="answer">{{ answer.choice_text }}
+    </label><br>
+    </p>
+    {% endfor %}
+{% endfor %}
+
+
+<input type="submit" value="Confirm">
+<input type="button" onclick="history.back();" value="Back">
+
+</form>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+</body>
+</html>

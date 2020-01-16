@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oritest</title>
+</head>
+<body>
+<h1 style="color:#88d1b1">Skin questionnaire by Oriflame</h1>
+{% if latest_questionnaire_list %}
+    <ul>
+    {% for question in latest_questionnaire_list %}
+        <li><a href="{% url 'oritest:detail'%}">{{ question.questionnaire_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+</body>
+</html>
